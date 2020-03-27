@@ -101,7 +101,7 @@ Build a login form to authenticate your users.
 
 ### Stage 2 - Consuming the API
 
-- [ ] When `BubblePages` renders, make a GET request to fetch the color data for
+- [x] When `BubblePages` renders, make a GET request to fetch the color data for
       your bubbles.
 - [ ] In `ColorList.js`, complete the `saveEdit` and `deleteColor` functions to
       make AJAX requests to the API to edit/delete data
