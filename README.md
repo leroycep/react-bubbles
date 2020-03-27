@@ -43,11 +43,46 @@ following free-form questions. Edit this document to include your answers after
 each question. Make sure to leave a blank line above and below your answer so it
 is clear and easy to read by your project manager.
 
-- [ ] Explain what a token is used for.
-- [ ] What steps can you take in your web apps to keep your data secure?
+- [x] Explain what a token is used for.
+
+  - A token is used to show that a user is authorized to do stuff, like get the
+    list of colors or delete a color from the list.
+  - A token is used instead of a username and password, becase if someone gets a
+    hold of the username and password, the user will then need to reset their
+    password to be safe, and user's tend to reuse password. A token, on the
+    other hand, can be revoked by the server if it detects that the token has
+    been stolen. Then the user only has to login again, and the password will
+    not need to changed.
+
+- [x] What steps can you take in your web apps to keep your data secure?
+
+  - Store tokens instead of usernames and passwords
+  - Avoid using HTTP cookies to store information, as it is sensitive to more
+    attacks than localStorage
+  - If applicable, use session storage instead of localStorage and invalidate
+    tokens that are older than some threshold.
+  - Avoid storing user passwords! Passwords are hard to store securely. If it is
+    an option, use an OAuth and let Google/Facebook/etc. handle storing
+    passwords!
+  - If the information is particularly sensitive, _get a security expert_. There
+    are many, many ways to break the security on your site, and unless you study
+    security yourself, you will almost certainly fall into one pitfall or
+    another. Get somebody who knows what they're talking about.
+
 - [ ] Describe how web servers work.
+
+  - A server waits for a client to make a request, and when a request is made,
+    it will handle it. That's basically it.
+  - A server will have a static IP address. This IP address can be found by
+    looking it up at a DNS server, which will give you the IP address of a
+    domain name.
+
 - [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when
       interfacing with APIs/Servers.
+  - Create => POST
+  - Read => GET
+  - Update => PUT
+  - Delete => DELETE
 
 ## Project Set Up
 
@@ -103,7 +138,7 @@ Build a login form to authenticate your users.
 
 - [x] When `BubblePages` renders, make a GET request to fetch the color data for
       your bubbles.
-- [ ] In `ColorList.js`, complete the `saveEdit` and `deleteColor` functions to
+- [x] In `ColorList.js`, complete the `saveEdit` and `deleteColor` functions to
       make AJAX requests to the API to edit/delete data
 - [ ] Watch and enjoy as your app responds to updates in the data. Check out
       `Bubbles.js` to see how this is built.
