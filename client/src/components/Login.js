@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { BASE_API, TOKEN_STORAGE_KEY } from "../constants";
 
-const Login = () => {
+const Login = (props) => {
   // make a post request to retrieve a token from the api
   // when you have handled the token, navigate to the BubblePage route
   const usernameField = useRef();
@@ -14,7 +14,8 @@ const Login = () => {
     const username = usernameField.current.value;
     const password = passwordField.current.value;
     axios.post(`${BASE_API}/login`, { username, password }).then(res => {
-      window.localStorage.setItem(TOKEN_STORAGE_KEY, res.data.payload);
+      window.localStorage.setItem(TOKEN_STORAGE_KEY, JSON.stringify(res.data.payload));
+      props.history.push("/bubbles");
     });
   };
 
