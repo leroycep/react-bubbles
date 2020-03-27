@@ -5,7 +5,7 @@ import { TOKEN_STORAGE_KEY } from "../constants";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const token = window.localStorage.getItem(TOKEN_STORAGE_KEY);
-  if (token !== undefined) {
+  if (token) {
     return <Route component={Component} {...rest} />;
   } else {
     return <Redirect to="/" />;
